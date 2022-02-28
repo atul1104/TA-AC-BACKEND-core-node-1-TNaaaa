@@ -3,7 +3,9 @@ var http = require('http');
 var server = http.createServer(handleRequest);
 
 function handleRequest(req, res) {
-  console.log(req.headers, req.methods, req.url);
+  console.log(req.headers);
+  console.log(req.method);
+  console.log(req.url);
   res.end('Welcome To AltCampus');
 }
 
