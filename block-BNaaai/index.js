@@ -4,3 +4,7 @@ const parsedUrl = url.parse(
   true
 );
 console.log(parsedUrl);
+console.log(parsedUrl.pathname);
+console.log(parsedUrl.query);
+console.log(parsedUrl.protocol);
+console.log(parsedUrl.host);
