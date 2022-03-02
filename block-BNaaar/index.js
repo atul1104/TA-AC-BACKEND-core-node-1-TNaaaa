@@ -1,9 +1,7 @@
+const { rmSync } = require('fs');
 var http = require('http');
 
 var server = http.createServer(handleRequest);
-
-var parsedURL = url.parse(req.url);
-var pathaname = parsedURL.pathname;
 
 function handleRequest(req, res) {
   console.log(req.method, req.url);
@@ -13,6 +11,9 @@ function handleRequest(req, res) {
   } else if (req.method === 'GET' && req.url === '/about') {
     res.setHeader('Content-Type', 'text/html');
     res.end('<h2>This is all about NodeJS</h2>');
+  } else if (req.method === 'POST' && req.url === '/about') {
+    res.setHeader('Content-Type', 'application/json');
+    res.end(`{message: This is a post request}`);
   } else {
     res.writeHead(404, { 'Content-Type': 'text/html' });
     res.end('<h2>Page Not Found</h2>');
